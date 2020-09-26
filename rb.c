@@ -409,10 +409,7 @@ void reajustar(arvore *raiz, arvore elemento){
 	 cor(irmao(elemento)) == VERMELHO &&
 	 (cor(irmao(elemento)->dir) == PRETO || irmao(elemento)->dir == NULL) &&
 	 (cor(irmao(elemento)->esq) == PRETO || irmao(elemento)->esq == NULL)) {
-		 
-		 	printf("CASO 2\n");
-		         
-		   
+
 				if(eh_filho_esquerdo(elemento)){
 						rotacao_simples_esquerda(raiz, elemento->pai);
 				} else {
@@ -430,11 +427,7 @@ void reajustar(arvore *raiz, arvore elemento){
 	// caso 3: pai, irmãos e sobrinhos pretos
 	
 	if(cor(elemento -> pai) == PRETO && cor(irmao(elemento)) == PRETO &&
-		(cor(irmao(elemento)-> dir)  == PRETO || irmao(elemento) -> dir == NULL) &&
-		(cor(irmao(elemento) -> esq)  == PRETO || irmao(elemento) -> esq == NULL)){
-		
-		printf("caso3\n");
-		
+		(cor(irmao(elemento)-> dir)  == PRETO || irmao(elemento) -> dir == NULL) && (cor(irmao(elemento) -> esq)  == PRETO || irmao(elemento) -> esq == NULL)){	
 		irmao(elemento) -> cor = VERMELHO;
 		retira_duplo_preto(raiz, elemento);
 		reajustar(raiz, elemento -> pai);
@@ -447,10 +440,8 @@ void reajustar(arvore *raiz, arvore elemento){
 	
 	if(cor(elemento -> pai) == VERMELHO && 
 		(cor(irmao(elemento)) == PRETO || irmao(elemento) == NULL) &&
-		(cor(irmao(elemento)-> dir)  == PRETO || irmao(elemento) -> dir == NULL) &&
-		(cor(irmao(elemento) -> esq) == PRETO || irmao(elemento) -> esq == NULL)){
-			printf("caso4\n");
-			
+		(cor(irmao(elemento)-> dir)  == PRETO || irmao(elemento) -> dir == NULL) && (cor(irmao(elemento) -> esq) == PRETO || irmao(elemento) -> esq == NULL)){
+
 			elemento -> pai -> cor = PRETO;
 			irmao(elemento) -> cor = VERMELHO;
 			
@@ -465,9 +456,7 @@ void reajustar(arvore *raiz, arvore elemento){
 	
 	// caso 5 a
 	if(eh_filho_esquerdo(elemento) && cor(irmao(elemento)) == PRETO &&
-		(cor(irmao(elemento) -> dir) == PRETO || irmao(elemento) -> dir == NULL) &&
-		cor(irmao(elemento) -> esq) == VERMELHO){
-		printf("caso5a");
+		(cor(irmao(elemento) -> dir) == PRETO || irmao(elemento) -> dir == NULL) && cor(irmao(elemento) -> esq) == VERMELHO){
 			
 			rotacao_simples_direita(raiz, irmao(elemento));
 			irmao(elemento) -> cor = PRETO;
@@ -480,9 +469,7 @@ void reajustar(arvore *raiz, arvore elemento){
 	
 	// caso 5 b
 	if(!eh_filho_esquerdo(elemento) && cor(irmao(elemento)) == PRETO &&
-		(cor(irmao(elemento) -> esq) == PRETO || irmao(elemento) -> esq == NULL) &&
-		cor(irmao(elemento) -> dir) == VERMELHO){
-		printf("caso5b\n");
+		(cor(irmao(elemento) -> esq) == PRETO || irmao(elemento) -> esq == NULL) 		&& cor(irmao(elemento) -> dir) == VERMELHO){
 		
 			rotacao_simples_esquerda(raiz, irmao(elemento));
 			irmao(elemento) -> cor = PRETO;
@@ -501,8 +488,6 @@ void reajustar(arvore *raiz, arvore elemento){
 		cor(irmao(elemento)) == PRETO && 
 		cor(irmao(elemento) -> dir) == VERMELHO){
 		
-		printf("caso6a\n");
-		
 		enum cor cor_original_pai = cor(elemento -> pai);
 		
 		rotacao_simples_esquerda(raiz, elemento -> pai);
@@ -520,9 +505,7 @@ void reajustar(arvore *raiz, arvore elemento){
 	if(!eh_filho_esquerdo(elemento) && 
 		cor(irmao(elemento)) == PRETO && 
 		cor(irmao(elemento) -> esq) == VERMELHO){
-		
-		printf("caso6b\n");
-		
+
 		enum cor cor_original_pai = cor(elemento -> pai);
 		
 		rotacao_simples_direita(raiz, elemento -> pai);
