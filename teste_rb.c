@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "rb.h"
 #include "rb.c"
 
 int main(int argc, char * argv[]) {
